@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nallely de la Rosa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1f1f1f;
+      --secondary: #ffffff;
+      --accent: #6a4c93;
+      --accent-light: #e0b1cb;
+      --highlight: #aee1e1;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Work Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--secondary);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--secondary);
+      border-bottom: 1px solid #eee;
+      padding: 0.75rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    header {
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    header p.tagline {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    header h2 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .headshot {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1.5rem auto;
+      display: block;
+      border: 4px solid var(--highlight);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+
+    h4 {
+      color: var(--accent);
+    }
+
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .value-box {
+      flex: 1 1 200px;
+      border-left: 4px solid var(--accent-light);
+      padding-left: 1rem;
+    }
+
+    .project-list {
+      border-top: 2px solid var(--highlight);
+      padding-top: 1rem;
+    }
+
+    .project {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #fafafa;
+      border-left: 3px solid var(--accent);
+    }
+
+    .project h4 {
+      margin: 0 0 0.3rem;
+      font-weight: 600;
+    }
+
+    .edu-section, .research-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-box, .research-box {
+      flex: 1 1 200px;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 6px;
+      background-color: #fcfcfc;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--accent-light);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href=\"#research\">Research</a>
+    <a href=\"#portfolio\">Portfolio</a>
+    <a href=\"#mentorship\">Mentorship</a>
+    <a href=\"#resources\">Resources</a>
+    <a href=\"#cv\">Resume/CV</a>
+    <a href=\"#contact\">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Diverse Analytics for Diverse Human Understanding</h1>
+    <p class=\"tagline\">Decentering the default to do more honest human work.</p>
+    <h2>Nallely de la Rosa</h2>
+    <img class=\"headshot\" src=\"headshot.jpg\" alt=\"Nallely de la Rosa headshot\" />
+  </header>
+
+  <main>
+    <section>
+      <p>Hi, I’m Nallely! I am a Ph.D. student in NYU’s Social Psychology program...</p>
+      <p>I earned my B.A. in Child and Adolescent Development from California State University Northridge (CSUN)...</p>
+      <p>As a graduate student, I conduct research on racism and prejudice in Dr. Emily Balcetis’ Social Perception, Action, and Motivation (SPAM) Lab...</p>
+    </section>
+
+    <section id="research">
+      <h3 class="section-title">Research</h3>
+      <p>I study stereotyping, prejudice, and social hierarchies, focusing on how socially accepted stereotypes influence identity, behavior, and inequality. My work spans multiple areas, including leadership perceptions, intergroup attitudes, face perception, social learning of bias, and health equity. A key aspect of my research is developing strategies for effectively communicating disparities and inequalities to minoritized groups in ways that inspire action.</p>
+      <div class="research-grid">
+        <div class="research-box">[Project 1 Summary]</div>
+        <div class="research-box">[Project 2 Summary]</div>
+        <div class="research-box">[Project 3 Summary]</div>
+        <div class="research-box">[Project 4 Summary]</div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h3 class="section-title">UX Portfolio</h3>
+
+      <h4>Projects</h4>
+      <div class="project-list">
+        <div class="project">
+          <h4>Spotify Collaboration Feature</h4>
+          <p><strong>Context:</strong> Final project in Fundamentals of UX course<br/>
+             <strong>Goal:</strong> Increase social connection through live music sharing<br/>
+             <strong>Role:</strong> UX Researcher + Designer<br/>
+             <strong>Highlights:</strong> Wireframes, user research, design proposal
+          </p>
+          <a href="#">View slides</a>
+        </div>
+      </div>
+
+      <h4>Education</h4>
+      <div class="edu-section">
+        <div class="edu-box">
+          <h4>Theory</h4>
+          <p>Grounded in social psychology, stereotype research, and intersectional theory.</p>
+        </div>
+        <div class="edu-box">
+          <h4>Applied</h4>
+          <p>Design thinking, qualitative interviews, UX research methods.</p>
+        </div>
+        <div class="edu-box">
+          <h4>Quant Skills</h4>
+          <p>Natural language processing, multilevel modeling, supervised learning, data visualization.</p>
+        </div>
+      </div>
+    </section>
+    <section id="mentorship">
+      <h3 class="section-title">Mentorship</h3>
+      <p>As a research mentor, I work closely with a team of 5-10 undergraduate research assistants and aim to provide them with experience that will prepare them for their professional goals. This includes experience handling data, collecting in-person and online data, managing participants, creating data stimuli, data analysis, and presentations.</p>
+
+      <h4>Mentorship Philosophy Statement</h4>
+      <p>As a PhD student in Dr. Emily Balcetis’ lab, I view mentorship as a vital component of my academic and professional journey. My approach to mentoring research assistants is grounded in the belief that each mentee brings a unique set of experiences, perspectives, and aspirations to the table. I strive to create a supportive, inclusive, and growth-oriented environment where all research assistants feel empowered to explore their potential and contribute meaningfully to our shared work.</p>
+
+      <p><strong>Commitment to Diversity and Inclusion.</strong> I am committed to fostering diversity and inclusion within the lab. I recognize that diversity extends beyond race and gender to include factors such as first-generation college status, socioeconomic background, type of institution previously attended, and experience in non-research or applied work settings. I believe that these diverse perspectives and experiences are invaluable, as they bring fresh insights and enrich our research, ultimately broadening our understanding of the world and the impact of our work...</p>
+
+      <h4>Mentorship Roles</h4>
+      <p>[Coming soon]</p>
+
+      <h4>Grants and Awards</h4>
+      <p>[Coming soon]</p>
+    </section>
+
+    <section id="resources">
+      <h3 class="section-title">Resources</h3>
+      <p><strong>Research Resources</strong></p>
+      <ul>
+        <li><strong>Zotero for Literature Reviews:</strong> Zotero is a reference manager that makes literature reviews more efficient. You are able to download all your journal articles in one place, organize by folders, share with others, and even highlight and take notes directly on the paper.</li>
+        <li><strong>Qualtrics for Surveying:</strong> Gain insights into survey design, data collection, and analysis using NYU’s Qualtrics platform.</li>
+        <li><strong>CITI for Ethics Training:</strong> Access comprehensive ethics training through NYU’s CITI Program.</li>
+        <li><strong>Graphic Design Tools & Tutorials:</strong> Learn how to create visual stimuli for perception studies using Photoshop, Canva, and more.</li>
+        <li><strong>Application Process Materials:</strong> Organization templates, CV worksheets, example statements, and guides.</li>
+      </ul>
+
+      <p><strong>Other Resources</strong></p>
+      <ul>
+        <li><strong>Científico Latino:</strong> Open-access resources and mentorship to support Latinx scientists in STEM.</li>
+        <li><strong>NYU Student Resources:</strong> University-wide services for research, wellness, and professional development.</li>
+      </ul>
+    </section>
+
+    <section id="cv">
+      <h3 class="section-title">Resume / CV</h3>
+      <a href="cv.pdf" download><button>Download CV (PDF)</button></a>
+    </section>
+
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <p>📧 nallelyrosa [at] nyu [dot] edu</p>
+      <p>🔗 <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+</body>
+</html>
+
