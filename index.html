@@ -9,9 +9,9 @@
     :root {
       --primary: #1f1f1f;
       --secondary: #ffffff;
-      --accent: #6a4c93;
-      --accent-light: #b76d94;
-      --highlight: #aee1e1;
+      --accent: #5e3c99;
+      --accent-light: #9e4770;
+      --highlight: #4ca4a4;
     }
 
     html {
@@ -20,11 +20,12 @@
 
     body {
       font-family: "Work Sans", sans-serif;
+      font-size: 1.125rem;
       margin: 0;
       padding: 0;
       background: var(--secondary);
       color: var(--primary);
-      line-height: 1.6;
+      line-height: 1.75;
     }
 
     nav {
@@ -45,6 +46,7 @@
       color: var(--primary);
       font-weight: 500;
       transition: color 0.3s;
+      font-size: 1.1rem;
     }
 
     nav a:hover {
@@ -65,7 +67,7 @@
 
     header p.tagline-main {
       margin-top: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: var(--accent);
       font-weight: 600;
     }
@@ -73,7 +75,7 @@
     header p.tagline-sub {
       font-style: italic;
       margin-top: 0.5rem;
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #555;
     }
 
@@ -103,10 +105,18 @@
     section {
       margin-bottom: 4rem;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section-title {
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
       color: var(--accent-light);
@@ -115,6 +125,7 @@
     h4 {
       color: var(--accent);
       text-align: left;
+      font-size: 1.2rem;
     }
 
     .values {
@@ -172,14 +183,17 @@
       background-color: var(--accent);
       color: white;
       border: none;
-      padding: 0.6rem 1rem;
-      font-size: 1rem;
+      padding: 0.75rem 1.25rem;
+      font-size: 1.1rem;
       border-radius: 4px;
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     button:hover {
       background-color: var(--accent-light);
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .back-to-top {
@@ -196,6 +210,22 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
 </head>
 <body>
   <nav>
