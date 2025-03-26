@@ -9,9 +9,9 @@
     :root {
       --primary: #1f1f1f;
       --secondary: #ffffff;
-      --accent: #5e3c99;
-      --accent-light: #9e4770;
-      --highlight: #4ca4a4;
+      --accent: #8a4f32; /* Terracotta */
+      --accent-light: #d8a72b; /* Deep Mustard */
+      --highlight: #5a7350; /* Olive */
     }
 
     html {
@@ -33,62 +33,57 @@
       top: 0;
       width: 100%;
       background: var(--highlight);
-      border-bottom: 1px solid #eee;
-      padding: 0.75rem 2rem;
+      border-bottom: 1px solid #ccc;
+      padding: 0.6rem 2rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
       text-decoration: none;
-      color: var(--primary);
+      color: var(--secondary);
       font-weight: 500;
       transition: color 0.3s;
       font-size: 1.1rem;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--accent-light);
     }
 
     header {
-      padding: 6rem 2rem 2rem;
+      padding: 4rem 2rem 2rem;
       text-align: center;
     }
 
-    header h1 {
+    header .tagline-main {
       margin: 0;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    header p.tagline-main {
-      margin-top: 0.5rem;
-      font-size: 1.4rem;
-      color: var(--accent);
+      font-size: 1.6rem;
       font-weight: 600;
+      color: var(--accent);
     }
 
-    header p.tagline-sub {
+    header .tagline-sub {
       font-style: italic;
-      margin-top: 0.5rem;
       font-size: 1.2rem;
       color: #555;
+      margin-bottom: 2rem;
     }
 
-    header h2 {
-      margin-top: 1rem;
-      font-size: 2.75rem;
+    header h1 {
+      margin: 0.5rem 0;
+      font-size: 2.8rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--primary);
+      letter-spacing: 0.5px;
     }
 
     .headshot {
-      width: 140px;
-      height: 140px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
       margin: 1.5rem auto;
