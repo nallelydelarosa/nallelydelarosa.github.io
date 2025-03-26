@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nallely de la Rosa</title>
+  <title>Nallely De La Rosa</title>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -31,7 +31,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: var(--secondary);
+      background: var(--highlight);
       border-bottom: 1px solid #eee;
       padding: 0.75rem 2rem;
       display: flex;
@@ -60,19 +60,28 @@
       margin: 0;
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--primary);
     }
 
-    header p.tagline {
+    header p.tagline-main {
       margin-top: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    header p.tagline-sub {
+      font-style: italic;
+      margin-top: 0.5rem;
+      font-size: 1rem;
       color: #555;
     }
 
     header h2 {
       margin-top: 1rem;
-      font-size: 2rem;
-      color: var(--primary);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--accent);
     }
 
     .headshot {
@@ -93,13 +102,14 @@
 
     section {
       margin-bottom: 4rem;
+      text-align: center;
     }
 
     .section-title {
       font-size: 1.75rem;
       font-weight: 600;
       margin-bottom: 1.5rem;
-      color: var(--accent);
+      color: var(--accent-light);
     }
 
     h4 {
@@ -110,6 +120,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
+      justify-content: center;
     }
 
     .value-box {
@@ -139,6 +150,7 @@
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .edu-box, .research-box {
@@ -184,19 +196,19 @@
 </head>
 <body>
   <nav>
-    <a href=\"#research\">Research</a>
-    <a href=\"#portfolio\">Portfolio</a>
-    <a href=\"#mentorship\">Mentorship</a>
-    <a href=\"#resources\">Resources</a>
-    <a href=\"#cv\">Resume/CV</a>
-    <a href=\"#contact\">Contact</a>
+    <a href="#research">Research</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#mentorship">Mentorship</a>
+    <a href="#resources">Resources</a>
+    <a href="#cv">Resume/CV</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <header>
-    <h1>Diverse Analytics for Diverse Human Understanding</h1>
-    <p class=\"tagline\">Decentering the default to do more honest human work.</p>
-    <h2>Nallely de la Rosa</h2>
-    <img class=\"headshot\" src=\"headshot.jpg\" alt=\"Nallely de la Rosa headshot\" />
+    <h2>Nallely De La Rosa</h2>
+    <p class="tagline-main">Diverse Analytics for Diverse Human Understanding</p>
+    <p class="tagline-sub">Decentering the default to do more honest human work.</p>
+    <img class="headshot" src="headshot.jpg" alt="Nallely De La Rosa headshot" />
   </header>
 
   <main>
