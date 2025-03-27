@@ -224,29 +224,6 @@
       <p>I earned my B.A. in Child and Adolescent Development from California State University Northridge (CSUN)...</p>
       <p>As a graduate student, I conduct research on racism and prejudice in Dr. Emily Balcetis’ Social Perception, Action, and Motivation (SPAM) Lab...</p>
     </section>
-  </main>
-
-  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
-</body>
-</html>
-
     
 <section id="approach">
   <h3 class="section-title">My Approach</h3>
