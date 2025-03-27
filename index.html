@@ -148,14 +148,22 @@
     }
 
     .tagline-image-wrapper::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(255, 107, 107, 0.25);
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
+content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(to right, 
+      var(--secondary) 0%, 
+      rgba(255, 255, 255, 0) 20%, 
+      rgba(255, 255, 255, 0) 80%, 
+      var(--secondary) 100%),
+    rgba(255, 107, 107, 0.25); /* existing watermelon pink overlay */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
 
     @media (min-width: 769px) {
       .tagline-image-section {
