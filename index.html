@@ -561,7 +561,7 @@
   <p>These resources are here to support students and aspiring researchers in organizing, designing, and navigating their research journey.</p>
 
   <button onclick="toggleResources()" id="toggleResourcesBtn" style="background-color: #ff6b6b; color: white; border: none; padding: 8px 12px; margin-top: 10px; cursor: pointer; border-radius: 5px;">
-    View Research Resources
+  ▼ View Research Resources
   </button>
 
   <div id="resourceContent" style="display: none; margin-top: 1rem;">
@@ -633,10 +633,10 @@
 
     if (content.style.display === "none") {
       content.style.display = "block";
-      btn.textContent = "Hide Research Resources";
+      btn.textContent = "▲ Hide Research Resources";
     } else {
       content.style.display = "none";
-      btn.textContent = "View Research Resources";
+      btn.textContent = " ▼ View Research Resources";
     }
   }
 </script>
