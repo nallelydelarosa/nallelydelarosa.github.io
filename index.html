@@ -246,60 +246,71 @@
       <p>I earned my B.A. in Child and Adolescent Development from California State University Northridge (CSUN)...</p>
       <p>As a graduate student, I conduct research on racism and prejudice in Dr. Emily Balcetis’ Social Perception, Action, and Motivation (SPAM) Lab...</p>
     </section>
-   <section id="approach">
+    
+<section id="approach">
   <h3 class="section-title">My Approach</h3>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 2rem auto; max-width: 1000px;">
+  <div style="position: relative; width: 600px; height: 600px; margin: 0 auto;">
+    <div class="petal" style="top: 0%; left: 50%; transform: translate(-50%, 0); background-color: #8a4f32;">
+      <strong>Authenticity</strong><br>
+      <small>I bring my full self — not just my academic training — to my research. That means naming bias, questioning legacy methods, and honoring the perspectives of those often overlooked.</small>
+    </div>
+    <div class="petal" style="top: 25%; left: 85%; transform: translate(-50%, -50%); background-color: #b38413;">
+      <strong>Community & Connection</strong><br>
+      <small>I center collaboration and reciprocity. I mentor with care, design with context, and aim to create research that speaks to the communities it impacts.</small>
+    </div>
+    <div class="petal" style="top: 75%; left: 85%; transform: translate(-50%, -50%); background-color: #5a7350;">
+      <strong>Empathy</strong><br>
+      <small>My work is guided by understanding — not just measurement. I design studies that reflect what it feels like to be human, especially at the margins.</small>
+    </div>
+    <div class="petal" style="top: 75%; left: 15%; transform: translate(-50%, -50%); background-color: #aa6d39;">
+      <strong>Reflection</strong><br>
+      <small>I treat my approach as iterative. I make space to rethink, revise, and respond — not just produce. This helps me challenge what’s “default.”</small>
+    </div>
+    <div class="petal" style="top: 25%; left: 15%; transform: translate(-50%, -50%); background-color: #6f7c54;">
+      <strong>Integrity</strong><br>
+      <small>I don’t cut corners. I hold myself accountable to ethics, care, and depth, especially when power and marginalization are involved.</small>
+    </div>
 
-    <div class="circle" style="background-color: #8a4f32;" onclick="showValue('authenticity')">Authenticity</div>
-    <div class="circle" style="background-color: #b38413;" onclick="showValue('community')">Community & Connection</div>
-    <div class="circle" style="background-color: #5a7350;" onclick="showValue('empathy')">Empathy</div>
-    <div class="circle" style="background-color: #aa6d39;" onclick="showValue('reflection')">Reflection</div>
-    <div class="circle" style="background-color: #6f7c54;" onclick="showValue('integrity')">Integrity</div>
-
+    <div class="center-quote">
+      <em>“My approach isn’t just about what I study — it’s about how and why I study it.”</em>
+    </div>
   </div>
-  <div id="value-text" style="text-align: center; max-width: 800px; margin: 2rem auto; font-size: 1.1rem;"></div>
-
-  <p style="text-align: center; font-style: italic; margin-top: 2rem; font-weight: 500; color: #1f1f1f;">
-    “My approach isn’t just about what I study — it’s about how and why I study it.”
-  </p>
 
   <style>
-    .circle {
-      width: 160px;
-      height: 160px;
+    .petal {
+      position: absolute;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
+      color: #fff;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-align: center;
       padding: 1rem;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .circle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    .center-quote {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 240px;
+      text-align: center;
+      font-size: 1rem;
+      color: #1f1f1f;
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
   </style>
-
-  <script>
-    function showValue(value) {
-      const descriptions = {
-        authenticity: "I bring my full self — not just my academic training — to my research. That means naming bias, questioning legacy methods, and honoring the perspectives of those often overlooked.",
-        community: "I center collaboration and reciprocity. I mentor with care, design with context, and aim to create research that speaks to the communities it impacts.",
-        empathy: "My work is guided by understanding — not just measurement. I design studies that reflect what it feels like to be human, especially at the margins.",
-        reflection: "I treat my approach as iterative. I make space to rethink, revise, and respond — not just produce. This helps me challenge what’s ‘default.’",
-        integrity: "I don’t cut corners. I hold myself accountable to ethics, care, and depth, especially when power and marginalization are involved."
-      };
-
-      const textElement = document.getElementById("value-text");
-      textElement.innerText = descriptions[value];
-    }
-  </script>
 </section>
+
     <section id="research">
       <h3 class="section-title">Research</h3>
       <p>I study stereotyping, prejudice, and social hierarchies, focusing on how socially accepted stereotypes influence identity, behavior, and inequality. My work spans multiple areas, including leadership perceptions, intergroup attitudes, face perception, social learning of bias, and health equity. A key aspect of my research is developing strategies for effectively communicating disparities and inequalities to minoritized groups in ways that inspire action.</p>
