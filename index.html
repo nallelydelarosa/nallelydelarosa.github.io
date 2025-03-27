@@ -80,14 +80,27 @@
   z-index: 1;
 }
 
+/* 🔽 SOFTER BOTTOM FADE */
 .tagline-image-section::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent, var(--secondary));
+  height: 120px; /* increased from 80px for smoother fade */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--secondary));
+  pointer-events: none;
+}
+
+/* NEW RIGHT-SIDE FADE */
+.tagline-image-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px; /* adjust width for how soft you want it */
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--secondary));
   pointer-events: none;
 }
 
@@ -330,7 +343,7 @@
 
     <div class="tagline-image">
       <div class="tagline-image-wrapper">
-        <img src="tagline-drawing.JPG" alt="Adolescent drawing a leader activity">
+        <img src="tagline-drawing.jpg" alt="Adolescent drawing a leader activity">
       </div>
     </div>
   </section>
