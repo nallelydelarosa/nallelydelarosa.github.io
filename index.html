@@ -8,11 +8,11 @@
   <style>
     :root {
       --primary: #1f1f1f;
-      --secondary: #fefbf6; /* warm cream */
-      --accent: #ff6b6b; /* watermelon pink */
-      --accent-light: #4ecdc4; /* mint teal */
-      --highlight: #ff9f1c; /* cantaloupe orange */
-      --soft-yellow: #ffe66d; /* sunny yellow */
+      --secondary: #fefbf6;
+      --accent: #ff6b6b;
+      --accent-light: #4ecdc4;
+      --highlight: #ff9f1c;
+      --soft-yellow: #ffe66d;
     }
 
     html {
@@ -205,6 +205,65 @@
       cursor: pointer;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
+
+    .tagline-image-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--accent-light);
+      padding: 3rem 2rem;
+      margin-top: 60px;
+    }
+
+    .tagline-text {
+      flex: 1 1 45%;
+      color: var(--primary);
+      padding-right: 2rem;
+    }
+
+    .tagline-text h2 {
+      font-size: 2rem;
+      margin: 0 0 1rem;
+      color: var(--primary);
+    }
+
+    .tagline-text p {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .tagline-image {
+      flex: 1 1 45%;
+      text-align: center;
+    }
+
+    .tagline-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .tagline-image-section {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .tagline-text {
+        padding: 0;
+      }
+
+      .tagline-text h2 {
+        font-size: 1.6rem;
+      }
+
+      .tagline-text p {
+        font-size: 1.1rem;
+      }
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -234,9 +293,17 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <section class="tagline-image-section">
+    <div class="tagline-text">
+      <h2 class="tagline-main">Diverse Analytics for Diverse Human Understanding</h2>
+      <p class="tagline-sub">Decentering the default to do more honest human work.</p>
+    </div>
+    <div class="tagline-image">
+      <img src="IMG_4167.JPG" alt="Adolescent drawing a leader activity">
+    </div>
+  </section>
+
   <header>
-    <p class="tagline-main">Diverse Analytics for Diverse Human Understanding</p>
-    <p class="tagline-sub">Decentering the default to do more honest human work.</p>
     <h1>Nallely De La Rosa</h1>
     <img class="headshot" src="your-headshot.jpg" alt="Nallely De La Rosa headshot">
   </header>
@@ -247,6 +314,10 @@
       <p>I earned my B.A. in Child and Adolescent Development from California State University Northridge (CSUN)...</p>
       <p>As a graduate student, I conduct research on racism and prejudice in Dr. Emily Balcetis’ Social Perception, Action, and Motivation (SPAM) Lab...</p>
     </section>
+  </main>
+</body>
+</html>
+
     
 <section id="approach">
   <h3 class="section-title">My Approach</h3>
