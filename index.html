@@ -148,7 +148,7 @@
     }
 
     .tagline-image-wrapper::after {
-content: "";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -159,8 +159,8 @@ content: "";
       var(--secondary) 0%, 
       rgba(255, 255, 255, 0) 20%, 
       rgba(255, 255, 255, 0) 80%, 
-      var(--secondary) 100%),
-    rgba(255, 107, 107, 0.25); /* existing watermelon pink overlay */
+      var(--accent-light) 100%),
+    rgba(255, 107, 107, 0.25); /* optional pink overlay */
   mix-blend-mode: multiply;
   pointer-events: none;
 }
