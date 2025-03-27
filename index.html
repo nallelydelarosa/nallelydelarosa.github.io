@@ -148,20 +148,17 @@
     }
 
     .tagline-image-wrapper::after {
-  content: "";
+ content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(to right, 
-      var(--secondary) 0%, 
-      rgba(255, 255, 255, 0) 20%, 
-      rgba(255, 255, 255, 0) 80%, 
-      var(--accent-light) 100%),
-    rgba(255, 107, 107, 0.25); /* optional pink overlay */
-  mix-blend-mode: multiply;
+    linear-gradient(to right, var(--accent-light), rgba(255, 255, 255, 0) 20%),
+    linear-gradient(to left, var(--accent-light), rgba(255, 255, 255, 0) 20%),
+    rgba(255, 107, 107, 0.15); /* optional pink wash */
+  mix-blend-mode: normal;
   pointer-events: none;
 }
 
