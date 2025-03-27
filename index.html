@@ -76,32 +76,42 @@
   padding: 0.5rem 1rem;
   margin-top: 60px;
   margin-bottom: 0;
-  position: relative; /* for pseudo-element */
+  position: relative;
   z-index: 1;
 }
 
-/* 🔽 SOFTER BOTTOM FADE */
+/* 🔽 Keep bottom fade only */
 .tagline-image-section::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 120px; /* increased from 80px for smoother fade */
+  height: 120px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--secondary));
   pointer-events: none;
 }
 
-/* NEW RIGHT-SIDE FADE */
+/* ❌ REMOVE right fade completely */
 .tagline-image-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px; /* adjust width for how soft you want it */
-  height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--secondary));
-  pointer-events: none;
+  content: none;
+}
+
+/* 💡 Keep image container styles */
+.tagline-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Clean image blur effect — applied directly to the image */
+.tagline-image-wrapper::after {
+  content: none;
 }
 
     .tagline-text {
