@@ -105,101 +105,13 @@
       color: var(--accent-light);
     }
 
-    h4 {
-      color: var(--accent);
-      text-align: left;
-      font-size: 1.1rem;
-    }
-
-    .values {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-
-    .value-box {
-      flex: 1 1 180px;
-      border-left: 4px solid var(--soft-yellow);
-      padding-left: 0.75rem;
-    }
-
-    .project-list {
-      border-top: 2px solid var(--highlight);
-      padding-top: 1rem;
-    }
-
-    .project {
-      margin-bottom: 1rem;
-      padding: 1rem;
-      background: #fafafa;
-      border-left: 3px solid var(--accent);
-      text-align: left;
-    }
-
-    .project h4 {
-      margin: 0 0 0.3rem;
-      font-weight: 600;
-    }
-
-    .edu-section, .research-grid {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .edu-box, .research-box {
-      flex: 1 1 180px;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      border-radius: 6px;
-      background-color: #fcfcfc;
-      text-align: left;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    button {
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      font-size: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    button:hover {
-      background-color: var(--accent-light);
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
     .tagline-image-section {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       background-color: var(--accent-light);
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       margin-top: 60px;
     }
 
@@ -260,9 +172,11 @@
       .tagline-image-section {
         flex-wrap: nowrap;
       }
+
       .tagline-text, .tagline-image {
         flex: 1 1 45%;
       }
+
       .tagline-text {
         padding-right: 2rem;
         text-align: left;
@@ -270,6 +184,7 @@
     }
   </style>
 </head>
+
 <body>
   <nav>
     <a href="#research">Research</a>
@@ -290,6 +205,7 @@
         Decentering the default to do more honest human work.
       </p>
     </div>
+
     <div class="tagline-image">
       <div class="tagline-image-wrapper">
         <img src="tagline-drawing.JPG" alt="Adolescent drawing a leader activity">
@@ -309,6 +225,25 @@
       <p>As a graduate student, I conduct research on racism and prejudice in Dr. Emily Balcetis’ Social Perception, Action, and Motivation (SPAM) Lab...</p>
     </section>
   </main>
+
+  <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
 </body>
 </html>
 
