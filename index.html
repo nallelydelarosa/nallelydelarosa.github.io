@@ -278,6 +278,7 @@
       <p>As a graduate student, I conduct research on racism and prejudice in Dr. Emily Balcetis’ Social Perception, Action, and Motivation (SPAM) Lab...</p>
     </section>
     
+    
 <section id="approach">
   <h3 class="section-title">My Approach</h3>
   <div class="approach-grid">
@@ -439,26 +440,6 @@
   </main>
 
   <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
-
-  <script>
-  const sections = document.querySelectorAll("section");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
-
 </body>
 </html>
 
