@@ -523,13 +523,13 @@
   </p>
 
   <button onclick="togglePhilosophy()" id="toggleBtn" style="background-color: #ff6b6b; color: white; border: none; padding: 8px 12px; margin-top: 10px; cursor: pointer; border-radius: 5px;">
-    Read my Mentorship Philosophy Statement
+    ▼ Read my Mentorship Philosophy Statement
   </button>
 
   <div id="philosophyText" style="display: none; margin-top: 1rem;">
     <h4>Mentorship Philosophy Statement</h4>
     <p>
-      I view mentorship as a vital component of my academic and professional journey. My approach to mentoring research assistants is grounded in the belief that each mentee brings a unique set of experiences, perspectives, and aspirations to the table. I strive to create a supportive, inclusive, and growth-oriented environment where all research assistants feel empowered to explore their potential and contribute meaningfully to our shared work.
+      I view mentorship as a vital component of my academic and professional journey. My approach to mentoring research assistants is grounded in the belief that each mentee brings a unique set of experiences, perspectives, and aspirations to the table...
     </p>
     <p>
       <strong>Commitment to Diversity and Inclusion.</strong> I am committed to fostering diversity and inclusion within the lab. I recognize that diversity extends beyond race and gender to include factors such as first-generation college status, socioeconomic background, type of institution previously attended, and experience in non-research or applied work settings. I believe that these diverse perspectives and experiences are invaluable, as they bring fresh insights and enrich our research, ultimately broadening our understanding of the world and the impact of our work. My goal as a mentor is to ensure that every research assistant feels respected, heard, and valued. I actively seek to understand each mentee’s unique background and tailor my mentoring approach to meet their individual needs. This includes providing additional support and resources for those who may be navigating the complexities of research and academia for the first time. I am committed to creating a safe space where all mentees can ask questions, express their ideas, and pursue their interests without fear of judgment. Additionally, I view my role as a mentor as an opportunity to challenge and push back against the established norms within academia that often disadvantage or fail to represent the full spectrum of lived experiences. I also recognize that it is my responsibility to remain open to feedback and criticism, especially when I am not fully living up to these values, so that I can continuously improve and better support my mentees.
@@ -538,6 +538,22 @@
        <strong>Continuous Learning and Improvement.</strong> Mentorship is a dynamic process, and I am committed to continuously reflecting on and improving my mentoring practices. I seek feedback from my mentees to ensure that I am meeting their needs and helping them achieve their goals. My ultimate aim is to be a mentor who not only supports my research assistants in their current roles but also helps them build a strong foundation for their future academic and professional success.
     </p>
   </div>
+</section>
+
+<script>
+  function togglePhilosophy() {
+    const text = document.getElementById("philosophyText");
+    const btn = document.getElementById("toggleBtn");
+
+    if (text.style.display === "none") {
+      text.style.display = "block";
+      btn.textContent = "▲ Hide Mentorship Philosophy Statement";
+    } else {
+      text.style.display = "none";
+      btn.textContent = "▼ Read my Mentorship Philosophy Statement";
+    }
+  }
+</script>
 </section>
 
 <section id="resources">
