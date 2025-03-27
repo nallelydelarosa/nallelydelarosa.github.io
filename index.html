@@ -247,6 +247,33 @@
         padding-right: 2rem;
         text-align: left;
       }
+.tagline-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tagline-image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tagline-image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(255, 107, 107, 0.25); /* Watermelon pink tint */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
     }
   </style>
   </head>
@@ -279,21 +306,24 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="tagline-image-section">
-<div class="tagline-text">
-  <h2 class="tagline-main">
-    Diverse Analytics<br>
-    for Diverse Human Understanding
-  </h2>
-  <p class="tagline-sub">
-    Decentering the default to do more honest human work.
-  </p>
-</div>
-  <div class="tagline-image-wrapper">
-    <img src="tagline-drawing.JPG" alt="Adolescent drawing a leader activity">
+<section class="tagline-image-section">
+  <div class="tagline-text">
+    <h2 class="tagline-main">
+      Diverse Analytics<br>
+      for Diverse Human Understanding
+    </h2>
+    <p class="tagline-sub">
+      Decentering the default to do more honest human work.
+    </p>
   </div>
-</div>
-  </section>
+
+  <div class="tagline-image">
+    <div class="tagline-image-wrapper">
+      <img src="tagline-drawing.JPG" alt="Adolescent drawing a leader activity">
+    </div>
+  </div>
+</section>
+
 
   <header>
     <h1>Nallely De La Rosa</h1>
