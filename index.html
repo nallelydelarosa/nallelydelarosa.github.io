@@ -62,23 +62,15 @@
 
 .tagline-image-section {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background: radial-gradient(
-    circle at top left,
-    var(--accent) 0%,
-    var(--highlight) 30%,
-    var(--soft-yellow) 55%,
-    var(--accent-light) 75%,
-    var(--secondary) 130%
-  );
-  padding: 0.5rem 1rem;
+  justify-content: center;
+  background: var(--secondary); /* Solid background instead of radial image/gradient */
+  padding: 3rem 1rem;
   margin-top: 60px;
-  margin-bottom: 0;
-  position: relative;
-  z-index: 1;
+  text-align: center;
 }
+
 
 /* 🔽 Keep bottom fade only */
 .tagline-image-section::after {
@@ -91,32 +83,6 @@
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--secondary));
   pointer-events: none;
 }
-
-/* ❌ REMOVE right fade completely */
-.tagline-image-section::before {
-  content: none;
-}
-
-
-.tagline-image-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 8px;
-  overflow: hidden;
-}
-  .tagline-image-wrapper {
-   margin: 1rem auto;
-  width: 100%;
-  }
-
-  .tagline-image-wrapper img {
-    width: 100%;
-    height: auto;
-  }
-
 
     .tagline-text {
       flex: 1 1 100%;
@@ -137,55 +103,6 @@
       font-style: italic;
       color: var(--primary);
     }
-
-    .tagline-image {
-      flex: 1 1 100%;
-      text-align: center;
-    }
-
-    .tagline-image-wrapper {
-      position: relative;
-      display: inline-block;
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .tagline-image-wrapper img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .tagline-image-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-
-  background: 
-    radial-gradient(farthest-side at left center, 
-      var(--highlight) 0%, 
-      rgba(var(--highlight-rgb), 0) 50%),
-    radial-gradient(farthest-side at right center, 
-      var(--accent-light) 0%, 
-      rgba(var(--accent-light-rgb), 0) 50%),
-    linear-gradient(to bottom, 
-      rgba(var(--accent-light-rgb), 0) 70%, 
-      var(--accent-light) 100%);
-}
-
-    @media (min-width: 769px) {
-      .tagline-image-section {
-        flex-wrap: nowrap;
-      }
 
       .tagline-text, .tagline-image {
         flex: 1 1 45%;
@@ -357,17 +274,18 @@
 
   <section class="tagline-image-section">
     <div class="tagline-text">
-      <h2 class="tagline-main">
-        Diverse Analytics<br>
-        for Diverse Human Understanding
-      </h2>
-      <p class="tagline-sub">
-        Decentering the default to do more honest, human work.
-      </p>
-      <h1 style="margin-top: 1.5rem; font-size: 2.5rem; font-weight: 600; color: var(--primary);">
+  <h2 class="tagline-main">
+  Diverse Analytics<br>
+  for Diverse Human Understanding
+</h2>
+<p class="tagline-sub">
+  Decentering the default to do more honest, human work.
+</p>
+<h1 style="margin-top: 1.5rem; font-size: 2.5rem; font-weight: 600; color: var(--primary);">
   Nallely De La Rosa
 </h1>
-<img src="your-headshot.jpg" alt="Nallely De La Rosa headshot" style="width: 200px; height: 200px; border-radius: 50%; margin-top: 1rem; border: 3px solid var(--accent-light);">
+<img src="your-headshot.jpg" alt="Nallely De La Rosa headshot"
+     style="width: 200px; height: 200px; border-radius: 50%; margin-top: 1rem; border: 3px solid var(--accent-light);">
 
     </div>
 
