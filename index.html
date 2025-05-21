@@ -422,21 +422,6 @@ section.visible::before {
   </div>
 </section>
 
-<script>
-  function togglePhilosophy() {
-    const text = document.getElementById("philosophyText");
-    const btn = document.getElementById("toggleBtn");
-
-    if (text.style.display === "none") {
-      text.style.display = "block";
-      btn.textContent = "▲ Hide Mentorship Philosophy Statement";
-    } else {
-      text.style.display = "none";
-      btn.textContent = "▼ Read my Mentorship Philosophy Statement";
-    }
-  }
-</script>
-</section>
 
 <section id="resources">
   <h3 class="section-title">Resources</h3>
@@ -508,20 +493,7 @@ section.visible::before {
   </div>
 </section>
 
-<script>
-  function toggleResources() {
-    const content = document.getElementById("resourceContent");
-    const btn = document.getElementById("toggleResourcesBtn");
 
-    if (content.style.display === "none") {
-      content.style.display = "block";
-      btn.textContent = "▲ Hide Research Resources";
-    } else {
-      content.style.display = "none";
-      btn.textContent = " ▼ View Research Resources";
-    }
-  }
-</script>
 
     </section>
 
@@ -559,7 +531,47 @@ section.visible::before {
   </div>
 </section>
 
-<script>
+    <section id="contact">
+      <h3 class="section-title">Contact</h3>
+      <p>📧 nallelyrosa [at] nyu [dot] edu</p>
+      <p>🔗 Let's connect! <a href="https://www.linkedin.com/in/nallelydelarosa" target="_blank">LinkedIn</a></p>
+    </section>
+
+    <section id="credit">
+      <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 3rem;">
+        Website Design and Programming by: Nallely De La Rosa
+      </p>
+    </section>
+
+
+    <script>
+     
+  function togglePhilosophy() {
+    const text = document.getElementById("philosophyText");
+    const btn = document.getElementById("toggleBtn");
+
+    if (text.style.display === "none") {
+      text.style.display = "block";
+      btn.textContent = "▲ Hide Mentorship Philosophy Statement";
+    } else {
+      text.style.display = "none";
+      btn.textContent = "▼ Read my Mentorship Philosophy Statement";
+    }
+  }
+
+  function toggleResources() {
+    const content = document.getElementById("resourceContent");
+    const btn = document.getElementById("toggleResourcesBtn");
+
+    if (content.style.display === "none") {
+      content.style.display = "block";
+      btn.textContent = "▲ Hide Research Resources";
+    } else {
+      content.style.display = "none";
+      btn.textContent = " ▼ View Research Resources";
+    }
+  }
+     
   function toggleResume() {
     const resume = document.getElementById("resumeContent");
     const btn = document.getElementById("toggleResumeBtn");
@@ -585,28 +597,7 @@ section.visible::before {
       btn.textContent = "View CV";
     }
   }
-</script>
 
-    </section>
-
-    <section id="contact">
-      <h3 class="section-title">Contact</h3>
-      <p>📧 nallelyrosa [at] nyu [dot] edu</p>
-      <p>🔗 Let's connect! <a href="https://www.linkedin.com/in/nallelydelarosa" target="_blank">LinkedIn</a></p>
-    </section>
-
-    <section id="credit">
-      <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 3rem;">
-        Website Design and Programming by: Nallely De La Rosa
-      </p>
-    </section>
-
-    
-  </main>
-
-  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
-
-<script>
   function toggleBio() {
     const content = document.getElementById("bioMore");
     const btn = document.getElementById("toggleBioBtn");
@@ -619,7 +610,7 @@ section.visible::before {
       btn.textContent = "▼ Read more about me";
     }
   }
-<script>
+
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll("nav a");
@@ -650,13 +641,8 @@ section.visible::before {
   });
 </script>
 
-
+<button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 </body>
 </html>
 
-
-
-  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
-</body>
-</html>
 
