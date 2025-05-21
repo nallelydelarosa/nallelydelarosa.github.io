@@ -61,57 +61,19 @@
     }
 
 .tagline-image-section {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--secondary); /* Solid background instead of radial image/gradient */
-  padding: 3rem 1rem;
+  background: var(--secondary); /* solid background */
+  padding: 4rem 1rem;
   margin-top: 60px;
   text-align: center;
+  box-sizing: border-box;
 }
 
-
-/* 🔽 Keep bottom fade only */
-.tagline-image-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--secondary));
-  pointer-events: none;
-}
-
-    .tagline-text {
-      flex: 1 1 100%;
-      color: var(--primary);
-      text-align: left;
-      padding-bottom: 1rem;
-    }
-
-    .tagline-text h2 {
-      font-size: 1.75rem;
-      margin: 0 0 1rem;
-      color: var(--primary);
-      line-height: 1.3;
-    }
-
-    .tagline-text p {
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--primary);
-    }
-
-      .tagline-text, .tagline-image {
-        flex: 1 1 45%;
-      }
-
-      .tagline-text {
-        padding-right: 2rem;
-        text-align: left;
-      }
     header h1 {
       margin: 0.5rem 0 1.5rem;
       font-size: 5rem;
@@ -120,15 +82,15 @@
       letter-spacing: 0.5px;
     }
 
-    .headshot {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 2rem auto 1rem;
-      display: block;
-      border: 4px solid var(--accent-light);
-    }
+.headshot {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 1rem;
+  border: 3px solid var(--accent-light);
+  object-fit: cover;
+}
+
 
     main {
       padding: 2rem;
@@ -271,6 +233,13 @@
     <a href="#cv">Resume/CV</a>
     <a href="#contact">Contact</a>
   </nav>
+.tagline-text {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+}
 
   <section class="tagline-image-section">
     <div class="tagline-text">
@@ -284,8 +253,7 @@
 <h1 style="margin-top: 1.5rem; font-size: 2.5rem; font-weight: 600; color: var(--primary);">
   Nallely De La Rosa
 </h1>
-<img src="your-headshot.jpg" alt="Nallely De La Rosa headshot"
-     style="width: 200px; height: 200px; border-radius: 50%; margin-top: 1rem; border: 3px solid var(--accent-light);">
+<img src=<img src="your-headshot.jpg" alt="Nallely De La Rosa headshot" class="headshot">
 
     </div>
 
