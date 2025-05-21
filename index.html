@@ -152,6 +152,10 @@ section {
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 section::before {
   content: "";
@@ -166,6 +170,12 @@ section::before {
 section.visible::before {
   background-color: var(--neutral-light);
 }
+
+nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 
 
 
@@ -528,7 +538,8 @@ section.visible::before {
     </section>
 
 
-    <script>
+<script>
+  // Toggle functions
   function togglePhilosophy() {
     const text = document.getElementById("philosophyText");
     const btn = document.getElementById("toggleBtn");
@@ -551,10 +562,10 @@ section.visible::before {
       btn.textContent = "▲ Hide Research Resources";
     } else {
       content.style.display = "none";
-      btn.textContent = " ▼ View Research Resources";
+      btn.textContent = "▼ View Research Resources";
     }
   }
-     
+
   function toggleResume() {
     const resume = document.getElementById("resumeContent");
     const btn = document.getElementById("toggleResumeBtn");
@@ -593,27 +604,53 @@ section.visible::before {
       btn.textContent = "▼ Read more about me";
     }
   }
-</script> 
-<script>
-  // Scroll-triggered section fade-in
-  document.addEventListener('DOMContentLoaded', () => {
-    const fadeSections = document.querySelectorAll('section:not(.visible)');
+
+  // Scroll fade-in + nav highlight
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Section fade-in animation
+    const allSections = document.querySelectorAll("section:not(.visible)");
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add("visible");
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
-    fadeSections.forEach(section => observer.observe(section));
+    allSections.forEach(section => observer.observe(section));
+
+    // 2. Active link highlighting in nav
+    const navLinks = document.querySelectorAll("nav a");
+
+    function updateActiveLink() {
+      let current = "";
+      const scrollY = window.scrollY;
+
+      document.querySelectorAll("section[id]").forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
   });
 </script>
 
 <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 </body>
 </html>
+
