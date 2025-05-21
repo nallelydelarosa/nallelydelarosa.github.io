@@ -306,7 +306,7 @@ section.visible::before {
 </section>
 
   <main>
-<section id="about">
+<section id="about" class="visible">
   <p>Hi, I'm Nallely (/nah-yeh-lee/). I’m a Ph.D. student in Social Psychology at NYU, where I study how people perceive and respond to social inequalities.</p>
 
   <button onclick="toggleBio()" id="toggleBioBtn"
@@ -544,9 +544,6 @@ section.visible::before {
 
 
     <script>
-     
-
-     
   function togglePhilosophy() {
     const text = document.getElementById("philosophyText");
     const btn = document.getElementById("toggleBtn");
@@ -611,39 +608,27 @@ section.visible::before {
       btn.textContent = "▼ Read more about me";
     }
   }
+</script> 
+<script>
+  // Scroll-triggered section fade-in
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeSections = document.querySelectorAll('section:not(.visible)');
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a");
-
-    function updateActiveLink() {
-      let currentSectionId = "";
-      const scrollY = window.pageYOffset;
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute("id");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
+    }, {
+      threshold: 0.1
+    });
 
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + currentSectionId) {
-          link.classList.add("active");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", updateActiveLink);
-    updateActiveLink(); // Run on load too
+    fadeSections.forEach(section => observer.observe(section));
   });
 </script>
 
 <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 </body>
 </html>
-
-
