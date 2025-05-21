@@ -619,29 +619,37 @@ section.visible::before {
       btn.textContent = "▼ Read more about me";
     }
   }
-</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav a");
 
- <script>
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("nav a");
+    function updateActiveLink() {
+      let currentSectionId = "";
+      const scrollY = window.pageYOffset;
 
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 150;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+        const sectionHeight = section.offsetHeight;
 
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + currentSectionId) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink(); // Run on load too
   });
 </script>
+
 
 </body>
 </html>
