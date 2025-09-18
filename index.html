@@ -41,20 +41,38 @@
     }
 
    
-/* keep everything inside the safe area on iOS webviews */
+/* mobile-safe, fixed top nav */
 nav {
-  padding-top: calc(0.6rem + env(safe-area-inset-top));
+  /* safe area + your horizontal padding */
+  padding: calc(0.6rem + env(safe-area-inset-top)) 2rem 0.6rem;
+
   position: fixed;
   top: 0;
   width: 100%;
   background: var(--accent-light);
   border-bottom: 1px solid #ccc;
-  padding: 0.6rem 2rem;
   display: flex;
   justify-content: center;
   gap: 2rem;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  /* allow multi-line on small screens */
+  flex-wrap: wrap;
+}
+
+/* make room for the fixed nav so content isn't hidden */
+body {
+  padding-top: 4.5rem; /* adjust if your nav is taller/shorter */
+}
+
+@media (max-width: 600px) {
+  nav {
+    gap: 0.75rem 1rem;
+    padding: calc(0.5rem + env(safe-area-inset-top)) 1rem 0.5rem;
+  }
+  body { padding-top: 5.5rem; } /* nav wraps -> taller */
+  nav a { font-size: 1rem; }
 }
 
 /* avoid headings hiding under the fixed nav when jumping to #anchors */
