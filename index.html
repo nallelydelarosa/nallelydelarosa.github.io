@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Nallely De La Rosa</title>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -13,6 +13,8 @@
   --accent-light: #f8bbd0;    /* soft blush for hovers (optional) */
   --neutral-light: #f4f4f4;   /* light gray for boxes/backgrounds */
   --border: #e0e0e0;          /* clean light gray for dividers */
+   --nav-h: 5.5rem; /* fallback*/
+
 }
 
 .quote-text {
@@ -40,8 +42,7 @@
       line-height: 1.75;
     }
 
-   
-/* mobile-safe, fixed top nav */
+  /* mobile-safe, fixed top nav */
 nav {
   /* safe area + your horizontal padding */
   padding: calc(0.6rem + env(safe-area-inset-top)) 2rem 0.6rem;
@@ -55,41 +56,35 @@ nav {
   justify-content: center;
   gap: 2rem;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
 
   /* allow multi-line on small screens */
   flex-wrap: wrap;
+
+  /* nicer wrapping */
+  box-sizing: border-box;
+  row-gap: .25rem;
 }
 
-/* make room for the fixed nav so content isn't hidden */
-body {
-  padding-top: 4.5rem; /* adjust if your nav is taller/shorter */
-}
+/* make room for the fixed nav (DYNAMIC height via --nav-h) */
+body { padding-top: var(--nav-h); }
 
 @media (max-width: 600px) {
   nav {
-    gap: 0.75rem 1rem;
-    padding: calc(0.5rem + env(safe-area-inset-top)) 1rem 0.5rem;
+    gap: .75rem 1rem;
+    padding: calc(.5rem + env(safe-area-inset-top)) 1rem .5rem;
   }
-  body { padding-top: 5.5rem; } /* nav wraps -> taller */
-  nav a { font-size: 1rem; }
+  nav a { font-size: 1rem; line-height: 1.2; white-space: nowrap; }
 }
 
-/* avoid headings hiding under the fixed nav when jumping to #anchors */
-section[id] { 
-  scroll-margin-top: 100px; 
-}
+/* anchor jumps clear the nav dynamically */
+section[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 
 /* responsive media */
-img, video, iframe { 
-  max-width: 100%; 
-  height: auto; 
-}
+img, video, iframe { max-width: 100%; height: auto; }
 
-/* avoid sideways scroll from overflowing elements */
-html, body { 
-  overflow-x: hidden; 
-}
+/* avoid sideways scroll */
+html, body { overflow-x: hidden; }
 
 
     nav a {
@@ -609,11 +604,12 @@ nav a.active {
 
 
 <script>
-  // Toggle functions
+  /* ---------------------------------------------
+   * Toggle functions (unchanged)
+   * ------------------------------------------- */
   function togglePhilosophy() {
     const text = document.getElementById("philosophyText");
     const btn = document.getElementById("toggleBtn");
-
     if (text.style.display === "none") {
       text.style.display = "block";
       btn.textContent = "▲ Hide Mentorship Philosophy Statement";
@@ -626,7 +622,6 @@ nav a.active {
   function toggleResources() {
     const content = document.getElementById("resourceContent");
     const btn = document.getElementById("toggleResourcesBtn");
-
     if (content.style.display === "none") {
       content.style.display = "block";
       btn.textContent = "▲ Hide Research Resources";
@@ -639,7 +634,6 @@ nav a.active {
   function toggleResume() {
     const resume = document.getElementById("resumeContent");
     const btn = document.getElementById("toggleResumeBtn");
-
     if (resume.style.display === "none") {
       resume.style.display = "block";
       btn.textContent = "Hide Resume";
@@ -652,7 +646,6 @@ nav a.active {
   function toggleCV() {
     const cv = document.getElementById("cvContent");
     const btn = document.getElementById("toggleCVBtn");
-
     if (cv.style.display === "none") {
       cv.style.display = "block";
       btn.textContent = "Hide CV";
@@ -665,7 +658,6 @@ nav a.active {
   function toggleBio() {
     const content = document.getElementById("bioMore");
     const btn = document.getElementById("toggleBioBtn");
-
     if (content.style.display === "none") {
       content.style.display = "block";
       btn.textContent = "▲ Show less";
@@ -675,11 +667,34 @@ nav a.active {
     }
   }
 
-  // Scroll fade-in + nav highlight
-  document.addEventListener("DOMContentLoaded", () => {
-    // 1. Section fade-in animation
-    const allSections = document.querySelectorAll("section:not(.visible)");
+  /* ---------------------------------------------
+   * Dynamic nav height → sets CSS var --nav-h
+   * so body padding & anchor offsets always match
+   * ------------------------------------------- */
+  function setNavOffsets() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    // actual nav height in pixels
+    const h = nav.offsetHeight;
+    // small buffer to avoid overlap flicker
+    const pad = h + 6;
+    document.documentElement.style.setProperty('--nav-h', pad + 'px');
+  }
 
+  // Recalculate on load, resize, and when fonts finish loading
+  window.addEventListener('load', setNavOffsets);
+  window.addEventListener('resize', setNavOffsets);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(setNavOffsets);
+  }
+
+  /* ---------------------------------------------
+   * Section fade-in + active nav highlight
+   * (uses dynamic --nav-h for scroll math)
+   * ------------------------------------------- */
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1) Fade-in sections
+    const allSections = document.querySelectorAll("section:not(.visible)");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -688,21 +703,28 @@ nav a.active {
         }
       });
     }, { threshold: 0.1 });
-
     allSections.forEach(section => observer.observe(section));
 
-    // 2. Active link highlighting in nav
+    // 2) Active link highlighting in nav
     const navLinks = document.querySelectorAll("nav a");
+
+    function cssNavHeight() {
+      // Read the dynamic CSS variable --nav-h as a float (pixels)
+      const v = getComputedStyle(document.documentElement)
+                  .getPropertyValue('--nav-h').trim();
+      const n = parseFloat(v);
+      return Number.isFinite(n) ? n : 88; // fallback ~5.5rem
+    }
 
     function updateActiveLink() {
       let current = "";
       const scrollY = window.scrollY;
+      const offset = cssNavHeight() + 20; // slight extra buffer
 
       document.querySelectorAll("section[id]").forEach(section => {
-        const sectionTop = section.offsetTop - 160;
-        const sectionHeight = section.offsetHeight;
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        const sectionTop = section.offsetTop - offset;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
           current = section.getAttribute("id");
         }
       });
@@ -715,10 +737,13 @@ nav a.active {
       });
     }
 
-    window.addEventListener("scroll", updateActiveLink);
+    window.addEventListener("scroll", updateActiveLink, { passive: true });
+    // Make sure offsets are correct before first run
+    setNavOffsets();
     updateActiveLink();
   });
 </script>
+
 
 <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 </body>
