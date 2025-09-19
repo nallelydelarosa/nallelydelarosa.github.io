@@ -554,47 +554,94 @@ nav a.active {
 </section>
 
 
-
-   
 <section id="cv">
   <h3 class="section-title">Resume / CV</h3>
 
-  <button onclick="toggleResume()" id="toggleResumeBtn" style="background-color: var(--accent); color: white; border: none; padding: 8px 12px; margin: 10px 5px 0 0; cursor: pointer; border-radius: 5px;">
+  <button onclick="toggleResume()" id="toggleResumeBtn"
+          aria-controls="resumeContent" aria-expanded="false"
+          style="background-color: var(--accent); color: white; border: none; padding: 8px 12px; margin: 10px 5px 0 0; cursor: pointer; border-radius: 5px;">
     View Resume
   </button>
 
-  <button onclick="toggleCV()" id="toggleCVBtn" style="background-color: var(--accent); color: white; border: none; padding: 8px 12px; margin-top: 10px; cursor: pointer; border-radius: 5px;">
+  <button onclick="toggleCV()" id="toggleCVBtn"
+          aria-controls="cvContent" aria-expanded="false"
+          style="background-color: var(--accent); color: white; border: none; padding: 8px 12px; margin-top: 10px; cursor: pointer; border-radius: 5px;">
     View CV
   </button>
 
-  <!-- Resume Content (placeholder) -->
-  <div id="resumeContent" style="display: none; margin-top: 1rem;">
+  <!-- Resume Content with Embedded Viewer -->
+  <div id="resumeContent" style="display:none; margin-top:1rem;">
     <p><strong>Resume</strong></p>
-    <p>This is a placeholder. Coming soon.</p>
-    <a href="resume.pdf" download>
-      <button style="margin-top: 10px; background-color: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 5px;">Download Resume (PDF)</button>
+    <p>You can view the resume below or download the PDF version.</p>
+
+    <object data="resume_2.pdf" type="application/pdf" width="100%" height="600"
+            style="border:1px solid #ccc; border-radius:8px;">
+      <p>PDF preview isn’t supported in this browser.
+        <a href="resume_2.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+      </p>
+    </object>
+
+    <a href="resume_2.pdf" download>
+      <button style="margin-top:10px; background-color: var(--accent); color:white; border:none; padding:8px 12px; border-radius:5px;">
+        Download Resume (PDF)
+      </button>
     </a>
   </div>
 
   <!-- CV Content with Embedded Viewer -->
-<div id="cvContent" style="display: none; margin-top: 1rem;">
-  <p><strong>Curriculum Vitae</strong></p>
-  <p>You can view the full academic CV below or download the PDF version.</p>
+  <div id="cvContent" style="display:none; margin-top:1rem;">
+    <p><strong>Curriculum Vitae</strong></p>
+    <p>You can view the full academic CV below or download the PDF version.</p>
 
-  <object data="cv.pdf" type="application/pdf" width="100%" height="600" style="border:1px solid #ccc; border-radius:8px;">
-    <p>PDF preview isn’t supported in this browser. 
-      <a href="cv.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
-    </p>
-  </object>
+    <object data="cv.pdf" type="application/pdf" width="100%" height="600"
+            style="border:1px solid #ccc; border-radius:8px;">
+      <p>PDF preview isn’t supported in this browser.
+        <a href="cv.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+      </p>
+    </object>
 
-  <a href="cv.pdf" download>
-    <button style="margin-top: 10px; background-color: #ff9f1c; color: white; border: none; padding: 8px 12px; border-radius: 5px;">
-      Download CV (PDF)
-    </button>
-  </a>
-</div>
-
+    <a href="cv.pdf" download>
+      <button style="margin-top:10px; background-color:#ff9f1c; color:white; border:none; padding:8px 12px; border-radius:5px;">
+        Download CV (PDF)
+      </button>
+    </a>
+  </div>
 </section>
+
+<script>
+  function show(el)  { el.style.display = 'block'; }
+  function hide(el)  { el.style.display = 'none'; }
+  function setExpanded(btn, val){ btn.setAttribute('aria-expanded', String(val)); }
+
+  function toggleResume() {
+    const resume = document.getElementById('resumeContent');
+    const cv     = document.getElementById('cvContent');
+    const rBtn   = document.getElementById('toggleResumeBtn');
+    const cBtn   = document.getElementById('toggleCVBtn');
+
+    if (resume.style.display === 'none' || resume.style.display === '') {
+      show(resume); hide(cv);
+      setExpanded(rBtn, true);  setExpanded(cBtn, false);
+    } else {
+      hide(resume); setExpanded(rBtn, false);
+    }
+  }
+
+  function toggleCV() {
+    const resume = document.getElementById('resumeContent');
+    const cv     = document.getElementById('cvContent');
+    const rBtn   = document.getElementById('toggleResumeBtn');
+    const cBtn   = document.getElementById('toggleCVBtn');
+
+    if (cv.style.display === 'none' || cv.style.display === '') {
+      show(cv); hide(resume);
+      setExpanded(cBtn, true);  setExpanded(rBtn, false);
+    } else {
+      hide(cv); setExpanded(cBtn, false);
+    }
+  }
+</script>
+
    
 </main> <!-- ✅ close the main tag here -->
  
